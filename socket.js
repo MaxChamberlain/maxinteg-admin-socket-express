@@ -14,7 +14,6 @@ module.exports = (io) => {
         })
 
         socket.on('setTasks', async data => {
-            console.log(data.tasks)
             const ref = db.collection('tasks')
             const doc = await ref.where('project_id', '==', data.id).get()
             const document = doc.docs[0]
